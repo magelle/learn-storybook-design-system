@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import { darken } from 'polished';
+import styled, {css} from 'styled-components';
+import {darken} from 'polished';
 
-import { Icon } from './Icon';
-import { color } from './shared/styles';
+import {Icon} from './Icon';
+import {color} from './shared/styles';
 
 const linkStyles = css`
   display: inline-block;
@@ -145,61 +145,61 @@ const LinkButton = styled.button`
 `;
 
 const applyStyle = LinkWrapper => {
-  return (
-    LinkWrapper &&
-    styled(({ containsIcon, inverse, nochrome, secondary, tertiary, ...linkWrapperRest }) => (
-      <LinkWrapper {...linkWrapperRest} />
-    ))`
+    return (
+        LinkWrapper &&
+        styled(({containsIcon, inverse, nochrome, secondary, tertiary, ...linkWrapperRest}) => (
+            <LinkWrapper {...linkWrapperRest} />
+        ))`
       ${linkStyles};
     `
-  );
+    );
 };
 
 /**
  * Links can contains text and/or icons. Be careful using only icons, you must provide a text alternative via aria-label for accessibility.
  */
-export function Link({ isButton, withArrow, LinkWrapper, children, ...rest }) {
-  const content = (
-    <Fragment>
-      <LinkInner withArrow={withArrow}>
-        {children}
-        {withArrow && <Icon icon="arrowright" />}
-      </LinkInner>
-    </Fragment>
-  );
+export function Link({isButton, withArrow, LinkWrapper, children, ...rest}) {
+    const content = (
+        <Fragment>
+            <LinkInner withArrow={withArrow}>
+                {children}
+                {withArrow && <Icon icon="arrowright"/>}
+            </LinkInner>
+        </Fragment>
+    );
 
-  const StyledLinkWrapper = applyStyle(LinkWrapper);
+    const StyledLinkWrapper = applyStyle(LinkWrapper);
 
-  let SelectedLink = LinkA;
-  if (LinkWrapper) {
-    SelectedLink = StyledLinkWrapper;
-  } else if (isButton) {
-    SelectedLink = LinkButton;
-  }
+    let SelectedLink = LinkA;
+    if (LinkWrapper) {
+        SelectedLink = StyledLinkWrapper;
+    } else if (isButton) {
+        SelectedLink = LinkButton;
+    }
 
-  return <SelectedLink {...rest}>{content}</SelectedLink>;
+    return <SelectedLink {...rest}>{content}</SelectedLink>;
 }
 
 Link.propTypes = {
-  isButton: PropTypes.bool,
-  children: PropTypes.node,
-  withArrow: PropTypes.bool,
-  containsIcon: PropTypes.bool,
-  LinkWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  inverse: PropTypes.bool,
-  nochrome: PropTypes.bool,
-  secondary: PropTypes.bool,
-  tertiary: PropTypes.bool,
+    isButton: PropTypes.bool,
+    children: PropTypes.node,
+    withArrow: PropTypes.bool,
+    containsIcon: PropTypes.bool,
+    LinkWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    inverse: PropTypes.bool,
+    nochrome: PropTypes.bool,
+    secondary: PropTypes.bool,
+    tertiary: PropTypes.bool,
 };
 
 Link.defaultProps = {
-  isButton: false,
-  children: null,
-  withArrow: false,
-  containsIcon: false,
-  LinkWrapper: undefined,
-  inverse: false,
-  nochrome: false,
-  secondary: false,
-  tertiary: false,
+    isButton: false,
+    children: null,
+    withArrow: false,
+    containsIcon: false,
+    LinkWrapper: undefined,
+    inverse: false,
+    nochrome: false,
+    secondary: false,
+    tertiary: false,
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import { background, color, typography } from './shared/styles';
+import styled, {css} from 'styled-components';
+import {background, color, typography} from './shared/styles';
 
 const BadgeWrapper = styled.div`
   display: inline-block;
@@ -58,13 +58,14 @@ const BadgeWrapper = styled.div`
 /**
  * **Badges?!** We don't need no stinkin' badges!!
  */
-export function Badge({ ...props }) {
-  return <BadgeWrapper {...props} />;
+export function Badge({...props}) {
+    return <BadgeWrapper {...props} />;
 }
+
 Badge.propTypes = {
-  status: PropTypes.oneOf(['positive', 'negative', 'neutral', 'error', 'warning']),
+    status: PropTypes.oneOf(['positive', 'negative', 'neutral', 'error', 'warning']),
 };
 
 Badge.defaultProps = {
-  status: 'neutral',
+    status: 'neutral',
 };
