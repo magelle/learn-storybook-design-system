@@ -1,7 +1,7 @@
 {
-  "name": "learnstorybook-design-system-template",
+  "name": "@magelle/learnstorybook-design-system-template",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -73,5 +73,10 @@
     "chromatic": "^6.0.6",
     "cross-env": "^7.0.3",
     "prettier": "^2.5.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:magelle/learn-storybook-design-system.git",
+  "author": "Maxime GELLE <maxime.gelle@gmail.com>",
+  "license": "MIT",
+  "description": "Storybook design systems tutorial"
 }
